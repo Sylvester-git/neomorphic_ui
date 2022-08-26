@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:neumorphic_ui_design/Widgets/MusicPicture.dart';
+import 'package:neumorphic_ui_design/Widgets/normaliconbuttons.dart';
+import 'package:neumorphic_ui_design/Widgets/spacer.dart';
+import 'package:neumorphic_ui_design/Widgets/topiconbuttons.dart';
 
 void main() {
   runApp(const Myapp());
@@ -24,43 +28,17 @@ class _MyappState extends State<Myapp> {
               const EdgeInsets.only(top: 25, left: 15, right: 15, bottom: 0),
           child: Column(
             children: [
-              const SizedBox(
-                height: 25,
-              ),
+              const spacer(height: 25),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   //Menu
-                  Container(
-                    padding: const EdgeInsets.all(12),
-                    decoration: BoxDecoration(
-                      color: Colors.grey[300],
-                      shape: BoxShape.circle,
-                      boxShadow: [
-                        //top left shadow
-                        const BoxShadow(
-                          color: Colors.white,
-                          offset: Offset(-5, -5),
-                          blurRadius: 10,
-                          spreadRadius: 1,
-                        ),
-                        //Bottom right shadow
-                        BoxShadow(
-                          color: Colors.grey.shade500,
-                          offset: const Offset(5, 5),
-                          blurRadius: 10,
-                          spreadRadius: 1,
-                        ),
-                      ],
-                    ),
-                    child: const Icon(
-                      Icons.menu_open_rounded,
-                      color: Colors.black87,
-                      size: 35,
-                    ),
+                  circularneomorphiccontainer(
+                    widget:
+                        NormalIcons(icon: Icons.menu_open_rounded, size: 35),
                   ),
                   //PLAYLIST text
-                  const Text(
+                  Text(
                     'P L A Y L I S T',
                     style: TextStyle(
                         color: Colors.black87,
@@ -68,39 +46,13 @@ class _MyappState extends State<Myapp> {
                         fontSize: 30),
                   ),
                   //More
-                  Container(
-                    padding: const EdgeInsets.all(12),
-                    decoration: BoxDecoration(
-                      color: Colors.grey[300],
-                      shape: BoxShape.circle,
-                      boxShadow: [
-                        //top left shadow
-                        const BoxShadow(
-                          color: Colors.white,
-                          offset: Offset(-5, -5),
-                          blurRadius: 10,
-                          spreadRadius: 1,
-                        ),
-                        //Bottom right shadow
-                        BoxShadow(
-                          color: Colors.grey.shade500,
-                          offset: const Offset(5, 5),
-                          blurRadius: 10,
-                          spreadRadius: 1,
-                        ),
-                      ],
-                    ),
-                    child: const Icon(
-                      Icons.more_vert_outlined,
-                      color: Colors.black87,
-                      size: 35,
-                    ),
+                  circularneomorphiccontainer(
+                    widget:
+                        NormalIcons(icon: Icons.more_vert_outlined, size: 35),
                   ),
                 ],
               ),
-              const SizedBox(
-                height: 20,
-              ),
+              spacer(height: 20),
               //Music photo
               Container(
                 padding: const EdgeInsets.all(30),
@@ -126,28 +78,8 @@ class _MyappState extends State<Myapp> {
                 ),
                 child: Column(
                   children: [
-                    Container(
-                      width: 300,
-                      height: 300,
-                      decoration: BoxDecoration(
-                        color: Colors.grey[300],
-                        borderRadius: BorderRadius.circular(10),
-                        image: const DecorationImage(
-                            image: AssetImage('Assets/images/music.jpg'),
-                            fit: BoxFit.fill),
-                      ),
-                      child: const Align(
-                        alignment: Alignment(1, -1),
-                        child: Icon(
-                          Icons.favorite_rounded,
-                          color: Colors.red,
-                          size: 40,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 25,
-                    ),
+                    MusicPicture(),
+                    spacer(height: 25),
                     //Music title
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -174,9 +106,7 @@ class _MyappState extends State<Myapp> {
                   ],
                 ),
               ),
-              const SizedBox(
-                height: 20,
-              ),
+              const spacer(height: 20),
               //Shuffle, repaly, music duration.
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -205,9 +135,7 @@ class _MyappState extends State<Myapp> {
                   ),
                 ],
               ),
-              const SizedBox(
-                height: 20,
-              ),
+              const spacer(height: 20),
               //Slider
               Container(
                 decoration: BoxDecoration(
@@ -245,97 +173,26 @@ class _MyappState extends State<Myapp> {
                       return '${newValue.round()} dollars';
                     }),
               ),
-              const SizedBox(height: 10),
+              const spacer(height: 10),
               //Play, next, back
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
+                children: const [
                   //fast rewind
-                  Container(
-                    padding: const EdgeInsets.all(12),
-                    decoration: BoxDecoration(
-                      color: Colors.grey[300],
-                      shape: BoxShape.circle,
-                      boxShadow: [
-                        //top left shadow
-                        const BoxShadow(
-                          color: Colors.white,
-                          offset: Offset(-5, -5),
-                          blurRadius: 10,
-                          spreadRadius: 1,
-                        ),
-                        //Bottom right shadow
-                        BoxShadow(
-                          color: Colors.grey.shade500,
-                          offset: const Offset(5, 5),
-                          blurRadius: 10,
-                          spreadRadius: 1,
-                        ),
-                      ],
-                    ),
-                    child: const Icon(
-                      Icons.fast_rewind_rounded,
-                      color: Colors.black87,
-                      size: 25,
-                    ),
+                  circularneomorphiccontainer(
+                    widget:
+                        NormalIcons(icon: Icons.fast_rewind_rounded, size: 25),
                   ),
+
                   //pause
-                  Container(
-                    padding: const EdgeInsets.all(12),
-                    decoration: BoxDecoration(
-                      color: Colors.grey[300],
-                      shape: BoxShape.circle,
-                      boxShadow: [
-                        //top left shadow
-                        const BoxShadow(
-                          color: Colors.white,
-                          offset: Offset(-5, -5),
-                          blurRadius: 10,
-                          spreadRadius: 1,
-                        ),
-                        //Bottom right shadow
-                        BoxShadow(
-                          color: Colors.grey.shade500,
-                          offset: const Offset(5, 5),
-                          blurRadius: 10,
-                          spreadRadius: 1,
-                        ),
-                      ],
-                    ),
-                    child: const Icon(
-                      Icons.pause,
-                      color: Colors.black87,
-                      size: 40,
-                    ),
+                  circularneomorphiccontainer(
+                    widget: NormalIcons(icon: Icons.pause, size: 40),
                   ),
+
                   //fast forward
-                  Container(
-                    padding: const EdgeInsets.all(12),
-                    decoration: BoxDecoration(
-                      color: Colors.grey[300],
-                      shape: BoxShape.circle,
-                      boxShadow: [
-                        //top left shadow
-                        const BoxShadow(
-                          color: Colors.white,
-                          offset: Offset(-5, -5),
-                          blurRadius: 10,
-                          spreadRadius: 1,
-                        ),
-                        //Bottom right shadow
-                        BoxShadow(
-                          color: Colors.grey.shade500,
-                          offset: const Offset(5, 5),
-                          blurRadius: 10,
-                          spreadRadius: 1,
-                        ),
-                      ],
-                    ),
-                    child: const Icon(
-                      Icons.fast_forward_rounded,
-                      color: Colors.black87,
-                      size: 25,
-                    ),
+                  circularneomorphiccontainer(
+                    widget:
+                        NormalIcons(icon: Icons.fast_forward_rounded, size: 25),
                   ),
                 ],
               )
