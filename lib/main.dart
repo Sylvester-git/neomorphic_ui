@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:neumorphic_ui_design/Widgets/MusicPicture.dart';
-import 'package:neumorphic_ui_design/Widgets/normaliconbuttons.dart';
-import 'package:neumorphic_ui_design/Widgets/spacer.dart';
-import 'package:neumorphic_ui_design/Widgets/topiconbuttons.dart';
+import './Widgets/MusicPicture.dart';
+import './Widgets/normaliconbuttons.dart';
+import './Widgets/spacer.dart';
+import './Widgets/topiconbuttons.dart';
 
 void main() {
   runApp(const Myapp());
@@ -31,7 +31,7 @@ class _MyappState extends State<Myapp> {
               const spacer(height: 25),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
+                children: const [
                   //Menu
                   circularneomorphiccontainer(
                     widget:
@@ -52,7 +52,7 @@ class _MyappState extends State<Myapp> {
                   ),
                 ],
               ),
-              spacer(height: 20),
+              const spacer(height: 20),
               //Music photo
               Container(
                 padding: const EdgeInsets.all(30),
@@ -78,8 +78,8 @@ class _MyappState extends State<Myapp> {
                 ),
                 child: Column(
                   children: [
-                    MusicPicture(),
-                    spacer(height: 25),
+                    const MusicPicture(),
+                    const spacer(height: 25),
                     //Music title
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
